@@ -1,0 +1,153 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f9fafb;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  padding: 20px;
+}
+
+.aplicacao {
+  width: 100%;
+  max-width: 800px;
+  background-color: #ffffff;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.aplicacao h1 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #333;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.formulario-contato {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.formulario-contato input {
+  padding: 12px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+  background-color: #f4f4f4;
+  transition: border-color 0.3s;
+}
+
+.formulario-contato input:hover{
+  border-color: rgb(103, 103, 103);
+}
+
+.formulario-contato input:focus {
+  border-color: black;
+  outline: none;
+}
+
+.formulario-contato button {
+  padding: 12px 20px;
+  font-size: 18px;
+  letter-spacing: 0.7px;
+  border: 1px solid black;
+  border-radius: 20px;
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  transition: all .55s ease-in-out;
+  transform: scale(0.9);
+}
+
+.formulario-contato button:hover {
+  background-color: black;
+  color: white;
+  transform: scale(0.95);
+}
+
+.lista-contatos {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.contato-item {
+  width: 100%;
+  padding: 15px;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  background-color: #f9f9f9;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  transition: background-color 0.3s;
+}
+
+.contato-item:hover {
+  background-color: #f1f1f1;
+}
+
+.contato-item span {
+  font-size: 16px;
+  color: #333;
+}
+
+.contato-item button {
+  padding: 8px 12px;
+  font-size: 14px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-left: 5px;
+  transition: background-color 0.3s, transform 0.3s;
+}
+
+.contato-item button:first-child {
+  background-color: #ffc107;
+  color: white;
+}
+
+.contato-item button:first-child:hover {
+  background-color: #e0a800;
+  transform: scale(1.05);
+}
+
+.contato-item button:last-child {
+  background-color: #dc3545;
+  color: white;
+}
+
+.contato-item button:last-child:hover {
+  background-color: #c82333;
+  transform: scale(1.05);
+}
+
+@media (min-width: 600px) {
+  .formulario-contato {
+    flex-direction: row;
+    align-items: center;
+  }
+
+  .formulario-contato input {
+    width: auto;
+    flex: 1;
+    margin-right: 10px;
+  }
+
+  .formulario-contato button {
+    width: auto;
+    flex-shrink: 0;
+  }
+}

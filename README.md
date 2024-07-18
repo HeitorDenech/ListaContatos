@@ -1,70 +1,80 @@
-# Getting Started with Create React App
+# Aplicação de Lista de Contatos
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Esta é uma aplicação de lista de contatos feita em React que permite adicionar, editar e remover contatos. O projeto também inclui uma estilização CSS para uma interface de usuário agradável.
 
-## Available Scripts
+## Funcionalidades
 
-In the project directory, you can run:
+1. **Adicionar Contato**: Permite ao usuário adicionar um novo contato com nome e telefone.
+2. **Editar Contato**: Permite ao usuário editar um contato existente.
+3. **Remover Contato**: Permite ao usuário remover um contato da lista.
 
-### `npm start`
+## Estrutura do Código
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+### Importações e Estados
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+O componente utiliza o hook `useState` do React para gerenciar seus estados:
 
-### `npm test`
+- `contatos`: Armazena a lista de contatos.
+- `novoNome`: Armazena o valor do campo de entrada onde o usuário digita o nome do contato.
+- `novoTelefone`: Armazena o valor do campo de entrada onde o usuário digita o telefone do contato.
+- `editandoContato`: Armazena o contato que está sendo editado atualmente.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### Funções
 
-### `npm run build`
+#### `adicionarContato`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+- **Descrição**: Adiciona um novo contato à lista de contatos.
+- **Parâmetros**: `e` (evento de submissão do formulário).
+- **Lógica**:
+  1. Previne o comportamento padrão do formulário.
+  2. Verifica se os campos de nome e telefone não estão vazios.
+  3. Cria um novo contato com um ID único, nome e telefone.
+  4. Adiciona o novo contato à lista de contatos.
+  5. Limpa os campos de entrada.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+#### `removerContato`
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+- **Descrição**: Remove um contato da lista de contatos.
+- **Parâmetros**: `id` (ID do contato a ser removido).
+- **Lógica**:
+  1. Filtra a lista de contatos para remover o contato com o ID correspondente.
 
-### `npm run eject`
+#### `iniciarEdicao`
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+- **Descrição**: Prepara o componente para a edição de um contato existente.
+- **Parâmetros**: `contato` (contato a ser editado).
+- **Lógica**:
+  1. Define `editandoContato` com o contato a ser editado.
+  2. Preenche os campos de entrada com o nome e telefone do contato.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+#### `salvarEdicao`
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+- **Descrição**: Salva as alterações feitas em um contato.
+- **Parâmetros**: `e` (evento de submissão do formulário).
+- **Lógica**:
+  1. Previne o comportamento padrão do formulário.
+  2. Atualiza o contato na lista de contatos com os novos valores de nome e telefone.
+  3. Limpa os campos de entrada e define `editandoContato` como `null`.
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+### Renderização
 
-## Learn More
+O componente retorna um JSX que inclui:
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+- Um título "Lista de Contatos".
+- Um formulário com campos de entrada para o nome e telefone e um botão de submissão. O texto do botão muda para "Salvar" se um contato estiver sendo editado.
+- Uma lista de contatos onde cada contato é exibido com seu nome e telefone, além de botões de "Editar" e "Remover".
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Estilização
 
-### Code Splitting
+A estilização é feita no arquivo `Contatos.css` e inclui:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+- Configurações de layout e tipografia para a aplicação.
+- Estilos para o formulário, campos de entrada e botões.
+- Estilos para a lista de contatos e itens de contato, incluindo efeitos de hover.
 
-### Analyzing the Bundle Size
+## Como Executar
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+1. **Clone o repositório:**
+   ```bash
+   git clone https://github.com/seu-usuario/seu-repositorio.git
+   cd seu-repositorio
